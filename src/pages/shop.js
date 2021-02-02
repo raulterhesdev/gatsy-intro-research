@@ -1,9 +1,8 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import { addToCart } from '../store/actions';
 import { useDispatch } from 'react-redux';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { Card, Grid, Text, Title, Button, Message } from '../pages.styles/shop';
 
 const ShopPage = ({ data }) => {
@@ -17,9 +16,9 @@ const ShopPage = ({ data }) => {
 					<Card key={node._id}>
 						<img src={node.picture} alt={node.name} />
 						<Title>
-							<AniLink cover bg='#663399' to={`book/${node._id}`}>
+							<Link to={`book/${node._id}`}>
 								<span>{node.name}</span>
-							</AniLink>
+							</Link>
 						</Title>
 						<Text>{node.author}</Text>
 						<Text>${node.price}</Text>

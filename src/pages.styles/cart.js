@@ -14,6 +14,7 @@ export const Cart = styled.div`
 	h3 {
 		text-align: right;
 		padding: 16px;
+		color: ${({ theme }) => theme.bgColor};
 	}
 `;
 
@@ -27,6 +28,9 @@ export const TableRow = styled.div`
 	grid-template-columns: repeat(5, 1fr);
 	padding: 8px;
 
+	border-bottom: 1px solid
+		${({ theme, isTableHead }) => (isTableHead ? theme.bgColor : 'transparent')};
+
 	span {
 		font-weight: ${({ isTableHead }) => (isTableHead ? ' bold' : 'initial')};
 		font-size: ${({ isTableHead }) => (isTableHead ? ' 16px' : '18px')};
@@ -39,6 +43,7 @@ export const ButtonContainer = styled.div`
 
 	button {
 		width: 200px;
+		outline: none;
 		border: none;
 		background-color: ${({ theme }) => theme.bgColor};
 		padding: 16px;

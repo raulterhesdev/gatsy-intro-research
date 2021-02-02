@@ -5,11 +5,13 @@ export const StyledHero = styled.div``;
 export const CardContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 8px;
+	grid-gap: 16px;
 	margin-top: 16px;
 `;
 
 export const Card = styled.div`
+	max-width: 350px;
+	margin: 0 auto;
 	h2 {
 		text-align: center;
 		background-color: ${({ theme }) => theme.bgColor};

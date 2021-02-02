@@ -1,6 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import {
 	GlobalStyle,
@@ -15,9 +14,7 @@ import Img from 'gatsby-image';
 
 const ListLink = (props) => (
 	<li>
-		<AniLink cover to={props.to} bg={globalTheme.bgColor}>
-			{props.children}
-		</AniLink>
+		<Link to={props.to}>{props.children}</Link>
 	</li>
 );
 
@@ -45,9 +42,9 @@ const Layout = ({ children, title }) => {
 			<GlobalStyle />
 
 			<Header>
-				<AniLink cover to='/' bg={globalTheme.bgColor}>
+				<Link to='/'>
 					<h3>{data.site.siteMetadata.title}</h3>
-				</AniLink>
+				</Link>
 				<ul>
 					<ListLink to='/'>Home</ListLink>
 					<ListLink to='/shop/'>Shop</ListLink>

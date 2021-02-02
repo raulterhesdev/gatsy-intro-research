@@ -3,20 +3,24 @@ import { graphql } from 'gatsby';
 import { addToCart } from '../store/actions';
 import { useDispatch } from 'react-redux';
 import Layout from '../components/Layout/Layout';
+import { BookContainer } from '../pages.styles/book';
+import { Message } from '../pages.styles/shop';
 
 const Book = ({ data }) => {
+	const [showMessage, setShowMessage] = React.useState(false);
 	const dispatch = useDispatch();
 	const book = data.booksJson;
 	return (
 		<Layout title={`${book.name} by ${book.author} | Gatsby Bookstore`}>
-			<div>
+			<BookContainer>
+				<img src={book.picture} alt={book.name} />
 				<h1>{book.name}</h1>
 				<h3>{book.author}</h3>
-				<p>{book.price}</p>
+				<span>{book.price}</span>
 				<p>{book.about}</p>
-				<img src={book.picture} alt={book.name} />
 				<button
 					onClick={() => {
+						setShowMessage(true);
 						dispatch(
 							addToCart({
 								_id: book._id,
@@ -25,11 +29,15 @@ const Book = ({ data }) => {
 								price: book.price,
 							})
 						);
+						setTimeout(() => {
+							setShowMessage(false);
+						}, 1500);
 					}}
 				>
 					Add To Cart
 				</button>
-			</div>
+			</BookContainer>
+			{showMessage ? <Message>Product added to cart!</Message> : null}
 		</Layout>
 	);
 };

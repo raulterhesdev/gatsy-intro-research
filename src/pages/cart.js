@@ -21,14 +21,14 @@ const CartPage = () => {
 	return (
 		<Layout title='Cart | Gatsby Bookstore'>
 			<Cart>
-				<h1>your cart:</h1>
+				<h1>Your cart:</h1>
 				<Table>
 					<TableRow isTableHead={true}>
 						<span>Quantity</span>
 						<span>Title</span>
 						<span>Author</span>
 						<span>Price / Unit</span>
-						<span>Total Price</span>
+						<span>Price</span>
 					</TableRow>
 					{cart.map((item) => (
 						<TableRow key={item._id}>

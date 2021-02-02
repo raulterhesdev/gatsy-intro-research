@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
 	font-family: 'Montserrat';
     font-size: 16px;
-
   }
 `;
 
@@ -67,6 +66,7 @@ export const Footer = styled.footer`
 
 export const Container = styled.div`
 	width: 95%;
-	max-width: 1500px;
+	max-width: 1280px;
+	min-height: 70vh;
 	margin: 0 auto;
 `;
